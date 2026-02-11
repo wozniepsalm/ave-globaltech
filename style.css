@@ -93,11 +93,13 @@ li { margin-bottom: 5px; }
 }
 
 .hero-text {
-    flex: 1; /* Tekst zajmuje połowę miejsca */
+    flex: 1.2; /* Tekst zajmuje połowę miejsca */
 }
 
 .hero-image {
-    flex: 1; /* Zdjęcie zajmuje drugą połowę */
+    flex: 0.8;
+    display: flex;
+    justify-content: center;
 }
 
 .hero-image img {
@@ -178,7 +180,6 @@ footer {
        Każda ma minimum 300px szerokości. */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
     gap: 30px; /* Odstępy między kafelkami */
-    margin-top: 40px;
 }
 
 .service-card {
@@ -204,11 +205,17 @@ footer {
 /* --- UKŁAD STRONY KORZYŚCI (Sidebar + Treść) --- */
 .sidebar-layout {
     display: grid;
-    grid-template-columns: 250px 1fr; /* Lewa kolumna stała, prawa reszta */
-    gap: 50px;
+    grid-template-columns: 250px 1fr; /* Szerszy margines na konspekt */
+    gap: 60px;
     max-width: 1200px;
-    margin: 40px auto;
-    padding: 0 20px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    align-items: start; /* Ważne dla efektu sticky */
+}
+
+.sidebar-menu {
+    position: sticky; /* Konspekt będzie widoczny podczas przewijania */
+    top: 40px;
 }
 
 /* --- STYLIZACJA MENU BOCZNEGO (KROPKI I LINIE) --- */
