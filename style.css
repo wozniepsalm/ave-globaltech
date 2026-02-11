@@ -1,0 +1,269 @@
+/* --- PODSTAWY --- */
+:root {
+    --bg-navy: #0c1b31;       /* Ciemny granat */
+    --text-white: #e6f1ff;    /* Biały tekst */
+    --accent-turquoise: #64ffda; /* Turkus */
+    --line-color: #233554;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-navy);
+    color: var(--text-white);
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+a { text-decoration: none; color: inherit; transition: 0.3s; }
+
+/* Zwykłe kropki w listach - tak jak chciałaś */
+ul {
+    list-style-type: disc; 
+    margin-left: 20px;
+    color: #8892b0;
+}
+
+li { margin-bottom: 5px; }
+
+/* --- NAGŁÓWEK --- */
+.main-header { padding: 20px 40px; background-color: var(--bg-navy); }
+
+/* --- NAGŁÓWEK I LOGO --- */
+.logo-container {
+    display: flex;              /* Ustawia logo i napis obok siebie */
+    align-items: center;        /* Wyśrodkowuje w pionie */
+    gap: 15px;                  /* Odstęp między logo a napisem */
+}
+
+.logo-container h1 {
+    color: var(--text-white);   /* ZMIANA: Biały kolor zamiast turkusu */
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.main-logo {
+    height: 50px;               /* Dostosuj wysokość logo */
+    width: auto;                /* Szerokość dopasuje się sama */
+}
+
+.header-line {
+    border: 0; height: 1px;
+    background-color: var(--accent-turquoise);
+    opacity: 0.5; margin: 15px 0;
+}
+
+.main-nav ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none; /* Tylko w menu bez kropek */
+    padding: 0;
+    margin: 0;
+}
+
+.main-nav a {
+    color: var(--text-white);
+    font-weight: 500;
+    font-size: 1.1rem;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+}
+
+.main-nav a:hover, .main-nav a.active {
+    color: var(--accent-turquoise);
+    border-bottom: 2px solid var(--accent-turquoise);
+}
+
+/* --- UKŁAD GŁÓWNY (Kontener) --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* --- SEKCJA HERO (TEKST + ZDJĘCIE OBOK) --- */
+.hero-split {
+    display: flex;            /* Ustawia elementy obok siebie */
+    align-items: center;      /* Wyśrodkowuje w pionie */
+    justify-content: space-between; 
+    gap: 50px;                /* Odstęp między tekstem a zdjęciem */
+    margin-bottom: 60px;
+}
+
+.hero-text {
+    flex: 1; /* Tekst zajmuje połowę miejsca */
+}
+
+.hero-image {
+    flex: 1; /* Zdjęcie zajmuje drugą połowę */
+}
+
+.hero-image img {
+    width: 100%;              /* Zdjęcie dopasowuje się do szerokości */
+    border-radius: 8px;       /* Lekkie zaokrąglenie rogów zdjęcia */
+    border: 1px solid var(--accent-turquoise); /* Cienka ramka */
+}
+
+.hero-text h2 {
+    font-size: 2.5rem;
+    color: var(--accent-turquoise);
+    margin-bottom: 20px;
+}
+
+.lead-text {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.cta-button {
+    display: inline-block;
+    border: 1px solid var(--accent-turquoise);
+    color: var(--accent-turquoise);
+    padding: 12px 25px;
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+.cta-button:hover {
+    background-color: rgba(100, 255, 218, 0.1);
+}
+
+/* --- POZOSTAŁE SEKCJE --- */
+.section-divider {
+    border: 0; border-top: 1px solid var(--line-color);
+    margin: 50px 0;
+}
+
+h3 {
+    color: var(--text-white);
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+p {
+    color: #8892b0; /* Szary kolor tekstu */
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+/* --- STOPKA --- */
+footer {
+    text-align: center;
+    padding: 30px;
+    border-top: 1px solid var(--line-color);
+    color: #8892b0;
+    font-size: 0.9rem;
+}
+
+/* --- RESPONSYWNOŚĆ (KOMÓRKI) --- */
+@media (max-width: 768px) {
+    .hero-split {
+        flex-direction: column; /* Na telefonie jeden pod drugim */
+    }
+    
+    .main-nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+}
+
+/* --- USŁUGI (KAFELKI) --- */
+.services-grid {
+    display: grid;
+    /* To magiczna linijka: tworzy tyle kolumn, ile się zmieści. 
+       Każda ma minimum 300px szerokości. */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 30px; /* Odstępy między kafelkami */
+    margin-top: 40px;
+}
+
+.service-card {
+    border: 1px solid var(--accent-turquoise); /* Cienka turkusowa ramka */
+    border-radius: 8px;         /* Lekko zaokrąglone rogi */
+    padding: 25px;              /* Wewnętrzny odstęp */
+    background-color: rgba(12, 27, 49, 0.5); /* Lekko ciemniejsze tło */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px); /* Lekkie uniesienie po najechaniu */
+    box-shadow: 0 5px 15px rgba(100, 255, 218, 0.1); /* Poświata */
+}
+
+.service-card h3 {
+    color: var(--accent-turquoise);
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(100, 255, 218, 0.3);
+    padding-bottom: 10px;
+}
+
+/* --- UKŁAD STRONY KORZYŚCI (Sidebar + Treść) --- */
+.sidebar-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr; /* Lewa kolumna stała, prawa reszta */
+    gap: 50px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* --- STYLIZACJA MENU BOCZNEGO (KROPKI I LINIE) --- */
+.sidebar-menu nav ul {
+    list-style: none; /* Usuwamy standardowe kropki */
+    position: relative;
+    padding-left: 20px;
+    border-left: 2px solid var(--line-color); /* To jest ta pionowa linia */
+    margin-left: 10px;
+}
+
+.sidebar-menu nav li {
+    margin-bottom: 25px;
+    position: relative; /* Ważne dla pozycjonowania kropek */
+}
+
+/* Tworzenie turkusowej kropki przy każdym punkcie */
+.sidebar-menu nav li::before {
+    content: '';
+    position: absolute;
+    left: -26px; /* Przesuwamy kropkę idealnie na linię */
+    top: 8px;    /* Wyśrodkowanie względem tekstu */
+    width: 12px;
+    height: 12px;
+    background-color: var(--bg-navy); /* Środek kropki w kolorze tła */
+    border: 2px solid var(--accent-turquoise); /* Turkusowa obwódka */
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+/* Efekt po najechaniu - kropka wypełnia się turkusem */
+.sidebar-menu nav li:hover::before {
+    background-color: var(--accent-turquoise);
+}
+
+.sidebar-menu nav a {
+    color: #8892b0;
+    font-weight: bold;
+    font-size: 1.1rem;
+    display: block;
+}
+
+.sidebar-menu nav a:hover {
+    color: var(--accent-turquoise);
+    padding-left: 5px; /* Lekkie przesunięcie tekstu */
+}
+
+/* --- RESPONSYWNOŚĆ DLA KORZYŚCI --- */
+@media (max-width: 768px) {
+    .sidebar-layout {
+        grid-template-columns: 1fr; /* Na telefonie jedna kolumna */
+    }
+    .sidebar-menu {
+        margin-bottom: 40px;
+        border-bottom: 1px solid var(--line-color);
+        padding-bottom: 20px;
+    }
+}
