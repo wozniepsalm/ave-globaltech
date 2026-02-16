@@ -1,278 +1,266 @@
-/* --- PODSTAWY --- */
+/* --- ZMIENNE KOLORYSTYCZNE (MOCNIEJSZY KONTRAST) --- */
 :root {
-    --bg-navy: #0c1b31;       /* Ciemny granat */
-    --text-white: #e6f1ff;    /* Biały tekst */
-    --accent-turquoise: #64ffda; /* Turkus */
-    --line-color: #233554;
+    /* Tło nie jest już czysto białe, lecz ma lekki odcień szaro-niebieski */
+    --bg-body: #eef2f6;       
+    --bg-white: #ffffff;      
+    
+    /* Główne kolory marki */
+    --text-primary: #0c1b31;   /* Ciemny granat (tekst główny) */
+    --text-secondary: #475569; /* Szary (tekst poboczny) - ciemniejszy niż wcześniej */
+    
+    /* Akcenty */
+    --accent-blue: #1e40af;    /* Mocny, królewski niebieski */
+    --accent-teal: #0d9488;    /* Głęboki turkus */
+    
+    /* Linie i Cienie - tu jest główna zmiana */
+    --line-color: #cbd5e1;     /* Wyraźne, szare linie (nie blade!) */
+    --shadow-card: 0 10px 15px -3px rgba(0, 0, 0, 0.15), 0 4px 6px -2px rgba(0, 0, 0, 0.1); /* Mocny cień */
+    --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1); /* Bardzo głęboki cień po najechaniu */
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: var(--bg-navy);
-    color: var(--text-white);
+    background-color: var(--bg-body);
+    color: var(--text-primary);
     line-height: 1.6;
     font-size: 16px;
+    /* Dodajemy delikatny wzór lub gradient, żeby "zabić" sterylność tła */
+    background-image: linear-gradient(to bottom, #eef2f6, #e2e8f0); 
+    min-height: 100vh;
 }
 
 a { text-decoration: none; color: inherit; transition: 0.3s; }
-
-/* Zwykłe kropki w listach - tak jak chciałaś */
-ul {
-    list-style-type: disc; 
-    margin-left: 20px;
-    color: #8892b0;
-}
-
-li { margin-bottom: 5px; }
+ul { list-style-type: disc; margin-left: 20px; color: var(--text-secondary); }
+li { margin-bottom: 8px; }
 
 /* --- NAGŁÓWEK --- */
-.main-header { padding: 20px 40px; background-color: var(--bg-navy); }
+.main-header {
+    padding: 20px 40px;
+    background-color: var(--bg-white);
+    border-bottom: 2px solid var(--line-color); /* Grubsza linia na dole */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
 
-/* --- NAGŁÓWEK I LOGO --- */
 .logo-container {
-    display: flex;              /* Ustawia logo i napis obok siebie */
-    align-items: center;        /* Wyśrodkowuje w pionie */
-    gap: 15px;                  /* Odstęp między logo a napisem */
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
 .logo-container h1 {
-    color: var(--text-white);   /* ZMIANA: Biały kolor zamiast turkusu */
+    color: var(--text-primary);
     font-size: 1.8rem;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    font-weight: 800; /* Grubasza czcionka */
+    letter-spacing: 1px;
 }
 
-.main-logo {
-    height: 50px;               /* Dostosuj wysokość logo */
-    width: auto;                /* Szerokość dopasuje się sama */
-    background-color: transparent !important; /* Wymusza przezroczystość tła */
-    display: block; /* Usuwa ewentualne luki pod obrazkiem */
-}
+.main-logo { height: 50px; width: auto; display: block; }
 
-.header-line {
-    border: 0; height: 1px;
-    background-color: var(--accent-turquoise);
-    opacity: 0.5; margin: 15px 0;
-}
+.main-nav { margin-top: 20px; }
 
 .main-nav ul {
     display: flex;
-    justify-content: space-between;
-    list-style: none; /* Tylko w menu bez kropek */
-    padding: 0;
+    justify-content: flex-start;
+    gap: 30px;
+    list-style: none;
     margin: 0;
 }
 
 .main-nav a {
-    color: var(--text-white);
-    font-weight: 500;
+    color: var(--text-primary);
+    font-weight: 600; /* Grubiej */
     font-size: 1.1rem;
-    padding-bottom: 5px;
-    border-bottom: 2px solid transparent;
+    padding: 10px 15px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
 }
 
+/* Efekt przycisku w menu po najechaniu */
 .main-nav a:hover, .main-nav a.active {
-    color: var(--accent-turquoise);
-    border-bottom: 2px solid var(--accent-turquoise);
+    background-color: var(--accent-blue);
+    color: #fff; /* Biały tekst na niebieskim tle */
+    box-shadow: 0 4px 6px rgba(30, 64, 175, 0.3);
 }
 
-/* --- UKŁAD GŁÓWNY (Kontener) --- */
+/* --- KONTENER GŁÓWNY --- */
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 60px 20px;
 }
 
-/* --- SEKCJA HERO (TEKST + ZDJĘCIE OBOK) --- */
+/* --- 1. STRONA GŁÓWNA --- */
 .hero-split {
-    display: flex;            /* Ustawia elementy obok siebie */
-    align-items: center;      /* Wyśrodkowuje w pionie */
-    justify-content: space-between; 
-    gap: 50px;                /* Odstęp między tekstem a zdjęciem */
-    margin-bottom: 60px;
-}
-
-.hero-text {
-    flex: 1.2; /* Tekst zajmuje połowę miejsca */
-}
-
-.hero-image {
-    flex: 0.8;
     display: flex;
-    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    margin-bottom: 80px;
 }
+
+.hero-text { flex: 1; }
+.hero-image { flex: 1; display: flex; justify-content: center; }
 
 .hero-image img {
-    width: 100%;              /* Zdjęcie dopasowuje się do szerokości */
-    border-radius: 8px;       /* Lekkie zaokrąglenie rogów zdjęcia */
-    border: 1px solid var(--accent-turquoise); /* Cienka ramka */
+    width: 100%;
+    max-width: 500px;
+    border-radius: 8px;
+    border: 4px solid #fff; /* Biała ramka wokół zdjęcia */
+    outline: 1px solid var(--line-color); /* Cienka szara linia na zewnątrz */
+    box-shadow: var(--shadow-card);
+}
+
+.placeholder-img {
+    width: 100%;
+    height: 350px;
+    background-color: #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    color: var(--text-secondary);
+    font-weight: bold;
+    border: 3px dashed var(--accent-blue); /* Wyraźna przerywana linia */
+    background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+    background-size: 20px 20px; /* Kropkowane tło techniczne */
 }
 
 .hero-text h2 {
-    font-size: 2.5rem;
-    color: var(--accent-turquoise);
-    margin-bottom: 20px;
+    font-size: 2.8rem;
+    color: var(--text-primary);
+    margin-bottom: 25px;
+    font-weight: 800;
+    text-shadow: 2px 2px 0px rgba(255,255,255,1); /* Lekkie podbicie tekstu */
 }
 
 .lead-text {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    color: var(--accent-blue);
     margin-bottom: 30px;
-    font-weight: bold;
+    font-weight: 600;
+    border-left: 5px solid var(--accent-teal); /* Kolorowy pasek przy wstępie */
+    padding-left: 15px;
 }
 
 .cta-button {
     display: inline-block;
-    border: 1px solid var(--accent-turquoise);
-    color: var(--accent-turquoise);
-    padding: 12px 25px;
-    border-radius: 4px;
-    margin-top: 20px;
+    background-color: var(--accent-blue);
+    color: #fff;
+    padding: 15px 35px;
+    border-radius: 6px;
+    margin-top: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 5px 15px rgba(30, 64, 175, 0.4);
+    border: 2px solid transparent;
 }
 
 .cta-button:hover {
-    background-color: rgba(100, 255, 218, 0.1);
+    background-color: #fff;
+    color: var(--accent-blue);
+    border-color: var(--accent-blue);
+    transform: translateY(-3px);
 }
 
-/* --- POZOSTAŁE SEKCJE --- */
-.section-divider {
-    border: 0; border-top: 1px solid var(--line-color);
-    margin: 50px 0;
-}
-
-h3 {
-    color: var(--text-white);
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-}
-
-p {
-    color: #8892b0; /* Szary kolor tekstu */
-    margin-bottom: 15px;
-    text-align: justify;
-}
-
-/* --- STOPKA --- */
-footer {
-    text-align: center;
-    padding: 30px;
-    border-top: 1px solid var(--line-color);
-    color: #8892b0;
-    font-size: 0.9rem;
-}
-
-/* --- RESPONSYWNOŚĆ (KOMÓRKI) --- */
-@media (max-width: 768px) {
-    .hero-split {
-        flex-direction: column; /* Na telefonie jeden pod drugim */
-    }
-    
-    .main-nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-    }
-}
-
-/* --- USŁUGI (KAFELKI) --- */
+/* --- 2. ZAKRES USŁUG (KAFELKI Z "PAZUREM") --- */
 .services-grid {
     display: grid;
-    /* To magiczna linijka: tworzy tyle kolumn, ile się zmieści. 
-       Każda ma minimum 300px szerokości. */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-    gap: 30px; /* Odstępy między kafelkami */
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 35px;
 }
 
 .service-card {
-    border: 1px solid var(--accent-turquoise); /* Cienka turkusowa ramka */
-    border-radius: 8px;         /* Lekko zaokrąglone rogi */
-    padding: 25px;              /* Wewnętrzny odstęp */
-    background-color: rgba(12, 27, 49, 0.5); /* Lekko ciemniejsze tło */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--bg-white);
+    border: 1px solid var(--line-color);
+    /* To dodaje kolorową belkę na górze każdego kafelka: */
+    border-top: 5px solid var(--accent-blue); 
+    border-radius: 8px;
+    padding: 35px;
+    box-shadow: var(--shadow-card);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 .service-card:hover {
-    transform: translateY(-5px); /* Lekkie uniesienie po najechaniu */
-    box-shadow: 0 5px 15px rgba(100, 255, 218, 0.1); /* Poświata */
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-hover);
+    border-top-color: var(--accent-teal); /* Zmiana koloru belki po najechaniu */
 }
 
 .service-card h3 {
-    color: var(--accent-turquoise);
-    margin-bottom: 15px;
-    border-bottom: 1px solid rgba(100, 255, 218, 0.3);
-    padding-bottom: 10px;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 15px;
 }
 
-/* --- UKŁAD STRONY KORZYŚCI (Sidebar + Treść) --- */
+/* --- 3. KORZYŚCI (SIDEBAR) --- */
 .sidebar-layout {
     display: grid;
-    grid-template-columns: 250px 1fr; /* Szerszy margines na konspekt */
-    gap: 60px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 20px;
-    align-items: start; /* Ważne dla efektu sticky */
+    grid-template-columns: 300px 1fr;
+    gap: 50px;
+    align-items: start;
 }
 
 .sidebar-menu {
-    position: sticky; /* Konspekt będzie widoczny podczas przewijania */
-    top: 40px;
+    position: sticky;
+    top: 30px;
+    background: var(--bg-white);
+    padding: 0; /* Padding usunięty dla nagłówka */
+    border-radius: 8px;
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--line-color);
+    overflow: hidden; /* Żeby nagłówek nie wystawał */
 }
 
-/* --- STYLIZACJA MENU BOCZNEGO (KROPKI I LINIE) --- */
+.sidebar-menu h3 {
+    background-color: var(--text-primary); /* Ciemny nagłówek menu */
+    color: #fff;
+    margin: 0;
+    padding: 20px;
+    font-size: 1.1rem;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.sidebar-menu nav { padding: 20px; }
+
 .sidebar-menu nav ul {
-    list-style: none; /* Usuwamy standardowe kropki */
-    position: relative;
-    padding-left: 20px;
-    border-left: 2px solid var(--line-color); /* To jest ta pionowa linia */
-    margin-left: 10px;
-}
-
-.sidebar-menu nav li {
-    margin-bottom: 25px;
-    position: relative; /* Ważne dla pozycjonowania kropek */
-}
-
-/* Tworzenie turkusowej kropki przy każdym punkcie */
-.sidebar-menu nav li::before {
-    content: '';
-    position: absolute;
-    left: -26px; /* Przesuwamy kropkę idealnie na linię */
-    top: 8px;    /* Wyśrodkowanie względem tekstu */
-    width: 12px;
-    height: 12px;
-    background-color: var(--bg-navy); /* Środek kropki w kolorze tła */
-    border: 2px solid var(--accent-turquoise); /* Turkusowa obwódka */
-    border-radius: 50%;
-    transition: background-color 0.3s;
-}
-
-/* Efekt po najechaniu - kropka wypełnia się turkusem */
-.sidebar-menu nav li:hover::before {
-    background-color: var(--accent-turquoise);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-left: 3px solid #e2e8f0;
 }
 
 .sidebar-menu nav a {
-    color: #8892b0;
-    font-weight: bold;
-    font-size: 1.1rem;
     display: block;
+    padding: 12px 15px;
+    color: var(--text-secondary);
+    font-weight: 600;
+    border-bottom: 1px solid #f1f5f9;
 }
 
 .sidebar-menu nav a:hover {
-    color: var(--accent-turquoise);
-    padding-left: 5px; /* Lekkie przesunięcie tekstu */
+    color: var(--accent-blue);
+    background-color: #f8fafc;
+    padding-left: 20px; /* Efekt przesunięcia */
 }
 
-/* --- RESPONSYWNOŚĆ DLA KORZYŚCI --- */
-@media (max-width: 768px) {
-    .sidebar-layout {
-        grid-template-columns: 1fr; /* Na telefonie jedna kolumna */
-    }
-    .sidebar-menu {
-        margin-bottom: 40px;
-        border-bottom: 1px solid var(--line-color);
-        padding-bottom: 20px;
-    }
+/* Sekcje treści w korzyściach */
+.content-area section {
+    background: var(--bg-white);
+    padding: 45px;
+    margin-bottom: 40px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--line-color);
+    /* Dodajemy delikatny kolorowy akcent z lewej strony sekcji */
+    border-left: 5px solid var(--accent-teal); 
 }
