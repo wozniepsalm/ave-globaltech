@@ -47,6 +47,8 @@ li { margin-bottom: 5px; }
 .main-logo {
     height: 50px;               /* Dostosuj wysokość logo */
     width: auto;                /* Szerokość dopasuje się sama */
+    background-color: transparent !important; /* Wymusza przezroczystość tła */
+    display: block; /* Usuwa ewentualne luki pod obrazkiem */
 }
 
 .header-line {
