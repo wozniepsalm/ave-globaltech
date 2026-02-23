@@ -14,7 +14,7 @@ body {
     color: #333;
     line-height: 1.6;
     min-height: 100vh;
-    background: linear-gradient(180deg, #FFFFFF 0%, #f0f2f5 100%);
+    background: #cacaca;
 }
 
 a { text-decoration: none; color: inherit; transition: 0.3s; }
@@ -23,7 +23,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* --- NAGŁÓWEK --- */
 .main-header {
-    background-color: #fff;
+    background-color: #cacaca;
     width: 100%;
 }
 
@@ -60,7 +60,7 @@ img { max-width: 100%; height: auto; display: block; }
 /* 2. NAWIGACJA - CIENIUTKA TURKUSOWA LINIA POD ZAKŁADKAMI */
 /* --- NAWIGACJA (MENU) --- */
 .main-nav { 
-    background-color: #fff; 
+    background-color: #cacaca; 
 }
 
 .main-nav ul { 
@@ -163,7 +163,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .service-card {
-    background-color: #fff;
+    background-color: #dfdfdf;
     padding: 30px;
     border-radius: 8px;
     border: 1px solid #e0e0e0; /* Delikatna ramka dla odznaczenia */
@@ -215,7 +215,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .sidebar-menu {
-    background: #fff; 
+    background: #dfdfdf; 
     padding: 30px; 
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
@@ -296,7 +296,7 @@ img { max-width: 100%; height: auto; display: block; }
 /* --- 8. SZERSZY FORMULARZ KONTAKTOWY --- */
 .contact-form-container {
     flex: 1.5; /* Formularz zajmuje 1.5x tyle miejsca co tekst obok (jest szerszy) */
-    background: #fff;
+    background: #dfdfdf;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.05);
@@ -306,7 +306,7 @@ img { max-width: 100%; height: auto; display: block; }
 .contact-form-container textarea {
     width: 100%; /* Rozciągnięcie pól na całą szerokość kontenera */
     padding: 12px;
-    border: 1px solid #ddd;
+    border: 1px solid #ececec;
     border-radius: 5px;
     font-family: inherit;
 }
