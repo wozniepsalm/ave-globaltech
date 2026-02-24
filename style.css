@@ -58,7 +58,8 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 /* 2. NAWIGACJA - CIENIUTKA TURKUSOWA LINIA POD ZAKŁADKAMI */
-/* --- NAWIGACJA (MENU) --- */
+/* --- NAWIGACJA (MENU) --- */ 
+
 .main-nav { 
     background-color: #e4e4e4; 
 }
@@ -101,35 +102,44 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 /* --- SEKCJA HERO I KONTAKT --- */
-.hero-split {
-    display: flex;             
-    align-items: flex-start; /* Zmieniono na start, żeby formularz nie rozciągał się dziwnie w pionie */      
-    justify-content: space-between;
-    gap: 50px;                 
-    margin-bottom: 60px;
+/* --- NOWA SEKCJA HERO Z TŁEM --- */
+.hero-bg {
+    /* Ustawiamy gradient (przyciemnienie) oraz docelowe zdjęcie z placeholdera */
+    background-image: linear-gradient(rgba(0, 32, 96, 0.8), rgba(44, 90, 160, 0.7)), url('images/hero-bg.jpeg');
+    background-size: cover; /* Zdjęcie pokryje całą sekcję bez zniekształceń */
+    background-position: center; /* Wyśrodkowanie zdjęcia */
+    background-repeat: no-repeat; /* Zapobiega kafelkowaniu obrazka */
+    
+    padding: 100px 20px; /* Duże odstępy z góry i dołu, aby sekcja była wysoka */
+    text-align: center; /* Środkujemy tekst */
+    color: #ffffff; /* Zmieniamy domyślny kolor tekstu na biały */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
 
-.hero-text { flex: 1; }
-
-.hero-image {
-    flex: 1; 
-    display: flex;
-    justify-content: flex-end; 
+.hero-text-overlay {
+    max-width: 800px; /* Ograniczamy szerokość tekstu, aby nie rozjeżdżał się na całe okno */
+    margin: 0 auto; /* Wyśrodkowanie kontenera w poziomie */
 }
 
-.hero-image img {
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
-    max-height: 500px;
-    object-fit: cover;
-}
-
-.hero-text h2 {
-    color: var(--navy-deep);
-    font-size: 3rem; 
+/* Nadpisujemy kolory nagłówków i tekstów wewnątrz tej konkretnej sekcji na jasne */
+.hero-text-overlay h2 {
+    color: #ffffff;
+    font-size: 3.5rem; /* Zwiększamy nagłówek dla lepszego efektu */
     font-weight: 800;
     line-height: 1.2;
     margin-bottom: 20px;
+}
+
+.hero-text-overlay .lead-text {
+    font-size: 1.3rem;
+    color: var(--accent-cyan); /* Używamy Twojego turkusowego koloru akcentowego! */
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
+.hero-text-overlay .about-content p {
+    color: #f0f0f0; /* Lekko złamany biały dla dłuższego tekstu */
+    margin-bottom: 15px;
 }
 
 .lead-text {
