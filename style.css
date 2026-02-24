@@ -14,7 +14,7 @@ body {
     color: #333;
     line-height: 1.6;
     min-height: 100vh;
-    background: #cacaca;
+    background: #e4e4e4;
 }
 
 a { text-decoration: none; color: inherit; transition: 0.3s; }
@@ -23,7 +23,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* --- NAGŁÓWEK --- */
 .main-header {
-    background-color: #cacaca;
+    background-color: #e4e4e4;
     width: 100%;
 }
 
@@ -60,7 +60,7 @@ img { max-width: 100%; height: auto; display: block; }
 /* 2. NAWIGACJA - CIENIUTKA TURKUSOWA LINIA POD ZAKŁADKAMI */
 /* --- NAWIGACJA (MENU) --- */
 .main-nav { 
-    background-color: #cacaca; 
+    background-color: #e4e4e4; 
 }
 
 .main-nav ul { 
@@ -155,6 +155,13 @@ img { max-width: 100%; height: auto; display: block; }
     color: var(--navy-deep);
 }
 
+.section-header {
+    text-align: center;
+    color: var(--navy-light);
+    font-size: 1.7rem;
+    margin-bottom: 10px;
+}
+
 /* --- KAFELKI USŁUG (4. i 5. ZMIANY) --- */
 .services-grid {
     display: grid;
@@ -163,12 +170,12 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .service-card {
-    background-color: #dfdfdf;
+    background-color: #ffffff;
     padding: 30px;
     border-radius: 8px;
-    border: 1px solid #e0e0e0; /* Delikatna ramka dla odznaczenia */
+    border: 1px solid var(--accent-cyan); /* Delikatna ramka dla odznaczenia */
     /* 4. WIĘKSZY CIEŃ I MOCNIEJSZE ODZNACZENIE */
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15); 
+    box-shadow: 0 15px 25px rgba(0,0,0,0.15); 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -215,9 +222,10 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .sidebar-menu {
-    background: #dfdfdf; 
+    background: #ffffff; 
     padding: 30px; 
     border-radius: 8px;
+    border: 1px solid var(--accent-cyan);
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     height: fit-content;
     position: sticky; 
@@ -229,7 +237,7 @@ img { max-width: 100%; height: auto; display: block; }
 /* 6. WYPUNKTOWANIE NA TURKUSOWO I LINIA ŁĄCZĄCA */
 .sidebar-menu nav ul {
     position: relative;
-    border-left: 2px solid #eee; /* Szara linia ciągła */
+    border-left: 2px solid #dad9d9; /* Szara linia ciągła */
     padding-left: 20px;
     margin-left: 10px;
 }
