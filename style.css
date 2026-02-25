@@ -311,20 +311,30 @@ img { max-width: 100%; height: auto; display: block; }
     color: var(--navy-light);
 }
 
+/* --- UKŁAD STRONY KONTAKTOWEJ --- */
+.hero-split {
+    display: flex; /* Uruchamia Flexbox - ustawia elementy w jednym rzędzie */
+    gap: 50px; /* Tworzy estetyczny odstęp (margines) między tekstem a formularzem */
+    align-items: flex-start; /* Sprawia, że oba elementy równają się do górnej krawędzi */
+}
+
+.hero-text {
+    flex: 1; /* Sprawia, że tekst zajmuje 1 proporcjonalną część dostępnego miejsca */
+}
 /* --- 8. SZERSZY FORMULARZ KONTAKTOWY --- */
 .contact-form-container {
     flex: 1.5; /* Formularz zajmuje 1.5x tyle miejsca co tekst obok (jest szerszy) */
-    background: #dfdfdf;
+    background: #ececec;
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.15);
 }
 
 .contact-form-container input,
 .contact-form-container textarea {
     width: 100%; /* Rozciągnięcie pól na całą szerokość kontenera */
     padding: 12px;
-    border: 1px solid #ececec;
+    border: 1px solid var(--accent-cyan);
     border-radius: 5px;
     font-family: inherit;
 }
