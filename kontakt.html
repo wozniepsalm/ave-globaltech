@@ -46,10 +46,11 @@
 
             <div class="contact-form-container">
                 <h3 style="text-align: center;">Wyślij wiadomość</h3>
-                <form action="#" method="POST" style="display: flex; flex-direction: column; gap: 15px;">
-                    <input type="text" placeholder="Imię i Nazwisko">
-                    <input type="email" placeholder="Adres Email">
-                    <textarea rows="5" placeholder="Treść wiadomości..."></textarea>
+                <form name="kontakt" method="POST" data-netlify="true" style="display: flex; flex-direction: column; gap: 15px;">
+                    <input type="hidden" name="subject" value="Wiadomość z formularza od {{imie}}">
+                    <input type="text" name="imie" placeholder="Imię i Nazwisko" required>
+                    <input type="email" name="email" placeholder="Adres Email" required>
+                    <textarea name="wiadomosc" rows="5" placeholder="Treść wiadomości..." required></textarea>
                     <button type="submit" class="cta-button" style="width: 100%; border: none; cursor: pointer;">Wyślij</button>
                 </form>
             </div>
